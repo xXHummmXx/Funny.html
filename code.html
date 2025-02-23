@@ -15,6 +15,23 @@
 </head>
 <body>
     <script>
+  // Fonction pour activer le plein écran automatiquement
+  function openFullScreen() {
+    let elem = document.documentElement; // Prend l'élément racine (la page entière)
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari et Opera
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+      elem.msRequestFullscreen();
+    }
+  }
+
+  // Lance automatiquement le plein écran après chargement de la page
+  window.onload = openFullScreen;
+
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
             let color = '#';
